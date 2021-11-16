@@ -3,57 +3,87 @@ html,body,main {
 
     width:100%;
     height:100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: LTEnergy;
 }
 
 body {
     margin: 0;
+    background-color: var(--MaximumRed--);
+}
+
+:root{
+    --PrussianBlue--: #003049;
+    --MaximumRed--: #D62828;
+    --Red--: #da5050;
+    --Orange--: #F77F00;
+    --MaximumYellowRed--: #FCBF49;
+    --LemonMeringue--: #EAE2B7;
+}
+
+@font-face {
+    font-family: LTEnergy;
+    src: url('../font/LTEnergy.ttf');
 }
 
 /* header */
 
-.header {
-    overflow: hidden;
-    background-color: #c7c5c5;
-    padding: 20px 10px;
-}
-  
-.header .all {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px; 
-    line-height: 25px;
-    border-radius: 4px;
-}
-  
-.header .title {
-    font-size: 25px;
-    font-weight: bold;
-}
-  
-.header .a:hover {
-    background-color: #ddd;
-    color: black;
-}
-  
-.header .a.active {
-    background-color: rgb(145, 23, 145);
-    color: white;
-}
-  
-.header-right {
-    float: right;
+.header{
+    background-color: var(--PrussianBlue--);   
 }
 
+.HCFibre{
+    display: flex;
+    justify-content: center;
+    font-size: 400%;
+    color: var(--MaximumYellowRed--);
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    font-size: 150%;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.linkHeader{
+    text-decoration: none;
+    color: var(--MaximumYellowRed--);
+    margin: 1%;
+}
+
+.linkHeader:hover{
+    color: var(--Red--);
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    100% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+} 
+
+/* FIN header */
 
 /* body */
 
 .container{
-    width: 100%;
+    text-align: center;
 }
+
+.title{
+    font-size: 400%;
+}
+
+/* FIN body */
 
 
 
@@ -66,7 +96,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: grey;
+    background: var(--PrussianBlue--);
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -83,6 +113,7 @@ body {
     width: 33.333%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .footer3{
@@ -100,3 +131,5 @@ body {
 .socialMedia2{
     width: 40px;
 }
+
+/* FIN footer*/
