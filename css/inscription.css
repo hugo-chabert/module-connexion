@@ -1,0 +1,169 @@
+
+html,body,main {
+
+    width:100%;
+    height:100%;
+    font-family: LTEnergy;
+}
+
+body {
+    margin: 0;
+    background-color: var(--WarmBlack--);
+}
+
+:root{
+    --RichBlackFOGRA--: #001021;
+    --WarmBlack--: #034748;
+    --StarCommandBlue--: #1481BA;
+    --CyanProcess--: #11B5E4;
+    --CeruleanCrayola--: #0CAADC;
+}
+
+@font-face {
+    font-family: LTEnergy;
+    src: url('../font/LTEnergy.ttf');
+}
+
+/* header */
+
+.header{
+    background-color: var(--RichBlackFOGRA--);   
+}
+
+.HCFibre{
+    display: flex;
+    justify-content: center;
+    font-size: 400%;
+    color: var(--CyanProcess--);
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    font-size: 150%;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.linkHeader{
+    text-decoration: none;
+    color: var(--CyanProcess--);
+    margin: 1%;
+}
+
+.linkHeader:hover{
+    color: var(--WarmBlack--);
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    100% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+} 
+
+/* FIN header */
+
+/* body */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.container{
+  display: flex;
+  justify-content:center;
+  flex-direction: columns;
+  align-items: center;
+}
+
+form {
+  margin-top: 20px;
+  background-color: var(--RichBlackFOGRA--);
+  padding: 40px 60px;
+  border-radius: 10px;
+  min-width: 300px;
+}
+
+form h1{
+  color: var(--WarmBlack--);
+  text-align:center;
+}
+
+
+form .inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+form .inputs input[type='login'], input[type='prenom'], input[type='nom'], input[type='password'], input[type='cpassword']{
+  padding: 15px;
+  border:none;
+  border-radius: 5px;
+  background-color:#f2f2f2;
+  outline:none;
+  margin-bottom: 15px;
+}
+
+form button{
+  padding: 15px 25px;
+  border-radius: 5px;
+  border:none;
+  font-size: 15px;
+  color: #fff;
+  background-color: var(--WarmBlack--);
+  outline:none;
+  cursor:pointer;
+}
+
+/* FIN body */
+
+/* footer*/
+
+.footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: var(--RichBlackFOGRA--);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer1{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 33.333%;
+}
+
+.footer2{
+    width: 33.333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer3{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 33.333%;
+}
+
+.socialMedia{
+    width: 25px;
+    margin: 3px;
+}
+
+.socialMedia2{
+    width: 40px;
+}
+
+/* FIN footer*/

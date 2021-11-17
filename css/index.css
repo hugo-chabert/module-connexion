@@ -8,16 +8,15 @@ html,body,main {
 
 body {
     margin: 0;
-    background-color: var(--MaximumRed--);
+    background-color: var(--WarmBlack--);
 }
 
 :root{
-    --PrussianBlue--: #003049;
-    --MaximumRed--: #D62828;
-    --Red--: #da5050;
-    --Orange--: #F77F00;
-    --MaximumYellowRed--: #FCBF49;
-    --LemonMeringue--: #EAE2B7;
+    --RichBlackFOGRA--: #001021;
+    --WarmBlack--: #034748;
+    --Orange--: #1481BA;
+    --CyanProcess--: #11B5E4;
+    --CeruleanCrayola--: #0CAADC;
 }
 
 @font-face {
@@ -28,14 +27,14 @@ body {
 /* header */
 
 .header{
-    background-color: var(--PrussianBlue--);   
+    background-color: var(--RichBlackFOGRA--);   
 }
 
 .HCFibre{
     display: flex;
     justify-content: center;
     font-size: 400%;
-    color: var(--MaximumYellowRed--);
+    color: var(--CyanProcess--);
 }
 
 .links{
@@ -48,12 +47,12 @@ body {
 
 .linkHeader{
     text-decoration: none;
-    color: var(--MaximumYellowRed--);
+    color: var(--CyanProcess--);
     margin: 1%;
 }
 
 .linkHeader:hover{
-    color: var(--Red--);
+    color: var(--WarmBlack--);
     animation-name: pulse;
     animation-duration: 0.5s;
     animation-fill-mode: both;
@@ -85,18 +84,13 @@ body {
 
 /* FIN body */
 
-
-
-
-
-
 /* footer*/
 
 .footer{
     left: 0;
     bottom: 0;
     width: 100%;
-    background: var(--PrussianBlue--);
+    background: var(--RichBlackFOGRA--);
     text-align: center;
     display: flex;
     flex-direction: row;
