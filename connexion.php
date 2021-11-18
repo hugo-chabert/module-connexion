@@ -23,8 +23,8 @@
             <form method="post" action="./index.php">        
                 <h1>Connexion</h1>                
                 <div class="inputs">
-                    <input type="login" placeholder="Login" />
-                    <input type="password" placeholder="Mot de passe">
+                    <input type="text" name="login" placeholder="Login" />
+                    <input type="password" name="password" placeholder="Mot de passe">
                 </div>
                 <div align="center">
                     <button type="submit">Connexion</button>

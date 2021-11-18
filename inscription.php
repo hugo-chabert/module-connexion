@@ -1,3 +1,30 @@
+<?php
+$Bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
+mysqli_set_charset($Bdd, 'utf8');
+$Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs`");
+$erreur = '';
+$empty = '';
+
+
+
+if(!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['password']) && !empty($_POST['Cpassword'])){
+    $Login  = $_POST['login'];
+    $Prenom = $_POST['prenom'];
+    $Nom = $_POST['nom'];
+    $MDP = $_POST['password'];
+    $CMDP = $_POST['Cpassword'];
+    if($_POST['password'] == $_POST['Cpassword']){
+        $Requete = mysqli_query($Bdd, "INSERT INTO utilisateurs(login, prenom, nom, password) VALUES ('$Login','$Prenom','$Nom','$MDP')");
+        header('Location: connexion.php');
+    }
+    else 
+        $erreur = '<div class="erreur">Les mots de passe sont différents.</div>';
+}
+else if(isset($_POST['login']) || isset($_POST['prenom']) || isset($_POST['nom']) || isset($_POST['password']) || isset($_POST['Cpassword'])){
+    $empty = '<div class="erreur">Veuillez entrer tout les champs.</div>';
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,15 +47,19 @@
 
     <main>
         <div class="container">
-            <form method="post" action="./index.php">        
+            <form method="post" action="">        
                 <h1>Inscription</h1>                
                 <div class="inputs">
-                    <input type="login" placeholder="Login" />
-                    <input type="prenom" placeholder="Prenom">
-                    <input type="nom" placeholder="Nom">
-                    <input type="password" placeholder="Mot de passe">
-                    <input type="password" placeholder="Confirmez le mot de passe">
+                    <input type="text" name="login" placeholder="Login">
+                    <input type="text" name="prenom" placeholder="Prenom">
+                    <input type="text" name="nom" placeholder="Nom">
+                    <input type="password" name="password" placeholder="Mot de passe">
+                    <input type="password" name="Cpassword" placeholder="Confirmez le mot de passe">
                 </div>
+                <?php
+                    echo $erreur;
+                    echo $empty;
+                ?>                
                 <div align="center">
                     <button type="submit">Inscription</button>
                 </div>

@@ -17,6 +17,7 @@ body {
     --StarCommandBlue--: #1481BA;
     --CyanProcess--: #11B5E4;
     --CeruleanCrayola--: #0CAADC;
+    --red--:rgb(255, 0, 0);
 }
 
 @font-face {
@@ -79,7 +80,7 @@ body {
 .container{
   display: flex;
   justify-content:center;
-  flex-direction: columns;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -102,7 +103,7 @@ form .inputs {
   flex-direction: column;
 }
 
-form .inputs input[type='login'], input[type='prenom'], input[type='nom'], input[type='password'], input[type='cpassword']{
+form .inputs input[type='text'], input[type='password']{
   padding: 15px;
   border:none;
   border-radius: 5px;
@@ -120,6 +121,12 @@ form button{
   background-color: var(--WarmBlack--);
   outline:none;
   cursor:pointer;
+}
+
+.erreur{
+    color:var(--red--);
+    text-align: center;
+    margin-bottom: 2%;
 }
 
 /* FIN body */
