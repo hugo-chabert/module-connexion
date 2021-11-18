@@ -30,6 +30,7 @@ else if(isset($_POST['login']) || isset($_POST['prenom']) || isset($_POST['nom']
 <head>
     <meta charset="UTF-8">
     <link href="css/inscription.css" rel="stylesheet">
+    <link href="css/header&footer.css" rel="stylesheet">
     <title>Inscription</title>
 </head>
 <body>

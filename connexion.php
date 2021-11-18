@@ -1,9 +1,37 @@
+<?php
+$erreur = '';
+session_start();
+
+if(isset($_SESSION['login'])){
+    header('Location: profil.php');
+}
+
+if(isset($_POST['connexion'])){
+    $Login = $_POST['login'];
+    $MDP = $_POST['password'];
+    if($Login != NULL && $MDP != NULL){
+        $Bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
+        mysqli_set_charset($Bdd, 'utf8');
+        $Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs` WHERE login = '".$Login."' AND password = '".$MDP."'");
+        $Rows = mysqli_num_rows($Requete);
+        if($Rows == 1){
+            $_SESSION['login'] = $Login;
+            header('Location: profil.php');
+        }
+
+        else
+            $erreur = '<div class="erreur">Login ou Mot de passe incorrect.</div>';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <link href="css/inscription.css" rel="stylesheet">
-    <title>Inscription</title>
+    <link href="css/header&footer.css" rel="stylesheet">
+    <title>Connexion</title>
 </head>
 <body>
     <header>
@@ -20,14 +48,17 @@
 
     <main>
         <div class="container">
-            <form method="post" action="./index.php">        
+            <form method="post" action="">        
                 <h1>Connexion</h1>                
                 <div class="inputs">
                     <input type="text" name="login" placeholder="Login" />
                     <input type="password" name="password" placeholder="Mot de passe">
                 </div>
+                <?php
+                    echo $erreur;
+                ?>
                 <div align="center">
-                    <button type="submit">Connexion</button>
+                    <button type="submit" name="connexion">Connexion</button>
                 </div>
             </form>
         </div>

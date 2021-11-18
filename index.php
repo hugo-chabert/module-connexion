@@ -1,8 +1,12 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <link href="css/index.css" rel="stylesheet">
+    <link href="css/header&footer.css" rel="stylesheet">
     <title>Accueil</title>
 </head>
 <body>
@@ -13,14 +17,14 @@
                 <a href="index.php" class="linkHeader">ACCUEIL</a>
                 <a href="inscription.php" class="linkHeader">INSCRIPTION</a>
                 <a href="connexion.php" class="linkHeader">CONNEXION</a>
-                <a href="admin.php" class="linkHeader">ADMIN</a>
+                <a href="profil.php" class="linkHeader">PROFIL</a>
             </div>
         </div>        
     </header>
 
     <main>
         <div class="container">
-            <div class="title">Bienvenue sur le site de HCFibre</div>
+            <div class="title">Bienvenue <?php if(isset($_SESSION['login'])){echo $_SESSION['login'];}?> sur le site de HCFibre</div>
             <p>Le fournisseur d'accès internet le plus rapide de France !!</p>
             <p>
                 Obtenez votre fibre à 1Gb/s pour SEULEMENT 25€/mois.
