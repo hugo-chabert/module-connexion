@@ -15,11 +15,11 @@ session_start();
             <div class="HCFibre">HCFibre</div>
             <div class="links">
                 <a href="index.php" class="linkHeader">ACCUEIL</a>
-                <a href="inscription.php" class="linkHeader">INSCRIPTION</a>
-                <a href="connexion.php" class="linkHeader">CONNEXION</a>
-                <a href="profil.php" class="linkHeader">PROFIL</a>
+                <?php if(!isset($_SESSION['login'])){echo '<a href="inscription.php" class="linkHeader">INSCRIPTION</a>';} ?>
+                <?php if(!isset($_SESSION['login'])){echo '<a href="connexion.php" class="linkHeader">CONNEXION</a>';} ?>
+                <?php if(isset($_SESSION['login'])){echo '<a href="profil.php" class="linkHeader">PROFIL</a>';} ?>
             </div>
-        </div>        
+        </div>
     </header>
 
     <main>
@@ -32,13 +32,13 @@ session_start();
         </div>
     </main>
 
-    <footer> 
+    <footer>
         <div class="footer">
             <div class="footer1">
                 <a href="https://github.com/hugo-chabert/module-connexion"><img class="socialMedia2"  src="images/GitHub-Logo.png"></a>
             </div>
-            <div class="footer2">            
-                Copyright © 2021 Hugo. All Rights Reserved       
+            <div class="footer2">
+                Copyright © 2021 Hugo. All Rights Reserved
             </div>
             <div class="footer3">
                 <a href="https://twitter.com/"><img class="socialMedia"  src="images/Twitter.png"></a>
@@ -46,7 +46,7 @@ session_start();
                 <a href="https://instagram.com/"><img class="socialMedia" src="images/Instagram.png"></a>
                 <a href="https://youtube.com/"><img class="socialMedia" src="images/Youtube.png"></a>
             </div>
-        </div> 
-    </footer>    
+        </div>
+    </footer>
 </body>
 </html>

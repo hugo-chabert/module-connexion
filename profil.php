@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if(isset($_POST['deconnexion'])){
     session_destroy();
     header('Location: index.php');
@@ -9,14 +10,13 @@ if(!isset($_SESSION['login'])){
     header('Location: index.php');
 }
 
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="css/inscription.css" rel="stylesheet">
+    <link href="css/profil.css" rel="stylesheet">
     <link href="css/header&footer.css" rel="stylesheet">
     <title>Profil</title>
 </head>
@@ -26,16 +26,15 @@ if(!isset($_SESSION['login'])){
             <div class="HCFibre">HCFibre</div>
             <div class="links">
                 <a href="index.php" class="linkHeader">ACCUEIL</a>
-                <a href="inscription.php" class="linkHeader">INSCRIPTION</a>
-                <a href="connexion.php" class="linkHeader">CONNEXION</a>
-                <a href="admin.php" class="linkHeader">ADMIN</a>
+                <?php if($_SESSION['login'] == 'admin'){echo '<a href="admin.php" class="linkHeader">ADMIN</a>';} ?>
             </div>
-        </div>        
+        </div>
     </header>
 
     <main>
         <div class="container">
-            <form method="post" action="">           
+            <div class="heureux">Heureux de voir revoir <?php echo $_SESSION['login']; ?></div>
+            <form method="post" action="">
                 <div align="center">
                     <button type="submit" name="deconnexion">Deconnexion</button>
                 </div>
@@ -43,13 +42,13 @@ if(!isset($_SESSION['login'])){
         </div>
     </main>
 
-    <footer> 
+    <footer>
         <div class="footer">
             <div class="footer1">
                 <a href="https://github.com/hugo-chabert/module-connexion"><img class="socialMedia2"  src="images/GitHub-Logo.png"></a>
             </div>
-            <div class="footer2">            
-                Copyright © 2021 Hugo. All Rights Reserved       
+            <div class="footer2">
+                Copyright © 2021 Hugo. All Rights Reserved
             </div>
             <div class="footer3">
                 <a href="https://twitter.com/"><img class="socialMedia"  src="images/Twitter.png"></a>
@@ -57,7 +56,7 @@ if(!isset($_SESSION['login'])){
                 <a href="https://instagram.com/"><img class="socialMedia" src="images/Instagram.png"></a>
                 <a href="https://youtube.com/"><img class="socialMedia" src="images/Youtube.png"></a>
             </div>
-        </div> 
-    </footer>    
+        </div>
+    </footer>
 </body>
 </html>

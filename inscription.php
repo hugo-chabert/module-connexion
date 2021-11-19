@@ -1,9 +1,13 @@
 <?php
+session_start();
 $Bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
 mysqli_set_charset($Bdd, 'utf8');
-$Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs`");
 $erreur = '';
-$empty = '';
+
+if(isset($_SESSION['login'])){
+    header('Location: index.php');
+}
+
 
 
 
@@ -13,15 +17,20 @@ if(!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom']) 
     $Nom = $_POST['nom'];
     $MDP = $_POST['password'];
     $CMDP = $_POST['Cpassword'];
-    if($_POST['password'] == $_POST['Cpassword']){
-        $Requete = mysqli_query($Bdd, "INSERT INTO utilisateurs(login, prenom, nom, password) VALUES ('$Login','$Prenom','$Nom','$MDP')");
+    $Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs` WHERE login = '".$Login."'");
+    $Rows = mysqli_num_rows($Requete);
+    if($Rows == 1){
+        $erreur = '<div class="erreur">Ce login est deja existant.</div>';
+    }
+    else if($_POST['password'] == $_POST['Cpassword']){
+        $Requete2 = mysqli_query($Bdd, "INSERT INTO utilisateurs(login, prenom, nom, password) VALUES ('$Login','$Prenom','$Nom','$MDP')");
         header('Location: connexion.php');
     }
-    else 
+    else
         $erreur = '<div class="erreur">Les mots de passe sont différents.</div>';
 }
 else if(isset($_POST['login']) || isset($_POST['prenom']) || isset($_POST['nom']) || isset($_POST['password']) || isset($_POST['Cpassword'])){
-    $empty = '<div class="erreur">Veuillez entrer tout les champs.</div>';
+    $erreur = '<div class="erreur">Veuillez entrer tout les champs.</div>';
 }
 ?>
 
@@ -39,17 +48,15 @@ else if(isset($_POST['login']) || isset($_POST['prenom']) || isset($_POST['nom']
             <div class="HCFibre">HCFibre</div>
             <div class="links">
                 <a href="index.php" class="linkHeader">ACCUEIL</a>
-                <a href="inscription.php" class="linkHeader">INSCRIPTION</a>
                 <a href="connexion.php" class="linkHeader">CONNEXION</a>
-                <a href="admin.php" class="linkHeader">ADMIN</a>
             </div>
-        </div>        
+        </div>
     </header>
 
     <main>
         <div class="container">
-            <form method="post" action="">        
-                <h1>Inscription</h1>                
+            <form method="post" action="">
+                <h1>Inscription</h1>
                 <div class="inputs">
                     <input type="text" name="login" placeholder="Login">
                     <input type="text" name="prenom" placeholder="Prenom">
@@ -59,8 +66,7 @@ else if(isset($_POST['login']) || isset($_POST['prenom']) || isset($_POST['nom']
                 </div>
                 <?php
                     echo $erreur;
-                    echo $empty;
-                ?>                
+                ?>
                 <div align="center">
                     <button type="submit">Inscription</button>
                 </div>
@@ -68,13 +74,13 @@ else if(isset($_POST['login']) || isset($_POST['prenom']) || isset($_POST['nom']
         </div>
     </main>
 
-    <footer> 
+    <footer>
         <div class="footer">
             <div class="footer1">
                 <a href="https://github.com/hugo-chabert/module-connexion"><img class="socialMedia2"  src="images/GitHub-Logo.png"></a>
             </div>
-            <div class="footer2">            
-                Copyright © 2021 Hugo. All Rights Reserved       
+            <div class="footer2">
+                Copyright © 2021 Hugo. All Rights Reserved
             </div>
             <div class="footer3">
                 <a href="https://twitter.com/"><img class="socialMedia"  src="images/Twitter.png"></a>
@@ -82,7 +88,7 @@ else if(isset($_POST['login']) || isset($_POST['prenom']) || isset($_POST['nom']
                 <a href="https://instagram.com/"><img class="socialMedia" src="images/Instagram.png"></a>
                 <a href="https://youtube.com/"><img class="socialMedia" src="images/Youtube.png"></a>
             </div>
-        </div> 
-    </footer>    
+        </div>
+    </footer>
 </body>
 </html>
