@@ -10,6 +10,18 @@ if(!isset($_SESSION['login'])){
     header('Location: index.php');
 }
 
+if(isset($_SESSION['login'])){
+    $username = $_SESSION['login'];
+    $Bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion') or die('Erreur');
+    $Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs` WHERE login = '$username'");
+    if($Rows = mysqli_fetch_array($Requete)){
+        $Login = $Rows['login'];
+        $Prenom = $Rows['prenom'];
+        $Nom = $Rows['nom'];
+    }
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +45,16 @@ if(!isset($_SESSION['login'])){
 
     <main>
         <div class="container">
-            <div class="heureux">Heureux de voir revoir <?php echo $_SESSION['login']; ?></div>
+            <div class="heureux">Heureux de vous revoir <?php echo $_SESSION['login']; ?></div>
+            <a class="change" href="changeprenom.php">Changez votre prénom</a></br>
+            <a class="change" href="changenom.php">Changez votre nom</a></br>
+            <a class="change" href="changeMDP.php">Changez votre mot de passe</a></br>
+        </div>
+        <div class="container">
+            <div class="identifiants">Vos identifiants :</div></br>
+            <div class="affiche">Login : <?php echo $Login;?></div></br>
+            <div class="affiche">Prénom : <?php echo $Prenom;?></div></br>
+            <div class="affiche">Nom : <?php echo $Nom;?></div></br>
             <form method="post" action="">
                 <div align="center">
                     <button type="submit" name="deconnexion">Deconnexion</button>

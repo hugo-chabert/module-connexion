@@ -1,20 +1,61 @@
 /* body */
 
 .container{
-    text-align: center;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.title{
-    font-size: 400%;
+form {
+    margin-top: 20px;
+    background-color: var(--RichBlackFOGRA--);
+    padding: 40px 60px;
+    border-radius: 10px;
+    min-width: 300px;
 }
 
-.textA{
-    color: var(--CyanProcess--);
+form h1{
+    color: var(--WarmBlack--);
+    text-align:center;
 }
 
-/* FIN body */
 
-html,body {
+form .inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+  form .inputs input[type='text'], input[type='password']{
+    padding: 15px;
+    border:none;
+    border-radius: 5px;
+    background-color:#f2f2f2;
+    outline:none;
+    margin-bottom: 15px;
+}
+
+form button{
+    padding: 15px 25px;
+    border-radius: 5px;
+    border:none;
+    font-size: 15px;
+    color: #fff;
+    background-color: var(--WarmBlack--);
+    outline:none;
+    cursor:pointer;
+}
+
+.erreur{
+      color:var(--red--);
+      text-align: center;
+      margin-bottom: 2%;
+}
+
+  /* FIN body */
+
+  html,body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -132,4 +173,3 @@ body {
 }
 
 /* FIN footer*/
-

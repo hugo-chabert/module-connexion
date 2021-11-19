@@ -33,8 +33,7 @@ if(isset($_POST['connexion'])){
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="css/inscription.css" rel="stylesheet">
-    <link href="css/header&footer.css" rel="stylesheet">
+    <link href="css/connexion.css" rel="stylesheet">
     <title>Connexion</title>
 </head>
 <body>

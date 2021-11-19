@@ -48,4 +48,22 @@ th, td{
     margin-bottom: 10%;
 }
 
+.change{
+    text-decoration: none;
+    color: var(--RichBlackFOGRA--);
+    background-color: var(--Orange--);
+    padding: 5%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.affiche{
+    color: var(--CyanProcess--);
+}
+
+.identifiants{
+    color : var(--Orange--);
+    font-size: 125%;
+    text-align: center;
+}
 /* FIN body */

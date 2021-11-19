@@ -6,7 +6,6 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <link href="css/index.css" rel="stylesheet">
-    <link href="css/header&footer.css" rel="stylesheet">
     <title>Accueil</title>
 </head>
 <body>
@@ -23,11 +22,11 @@ session_start();
     </header>
 
     <main>
-        <div class="container">
+        <div class="container textA">
             <div class="title">Bienvenue <?php if(isset($_SESSION['login'])){echo $_SESSION['login'];}?> sur le site de HCFibre</div>
             <p>Le fournisseur d'accès internet le plus rapide de France !!</p>
             <p>
-                Obtenez votre fibre à 1Gb/s pour SEULEMENT 25€/mois.
+                Obtenez votre fibre à 1Gb/s pour SEULEMENT 15€/mois.
             </p>
         </div>
     </main>
