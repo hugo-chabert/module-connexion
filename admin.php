@@ -1,6 +1,6 @@
 <?php
 session_start();
-$Bdd = mysqli_connect('localhost', 'root', '', 'hugo-chabert_moduleconnexion');
+$Bdd = mysqli_connect('localhost', 'hugo-chabert', 'Chabert13', 'hugo-chabert_moduleconnexion');
 mysqli_set_charset($Bdd, 'utf8');
 $Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs`");
 $Users = mysqli_fetch_all($Requete, MYSQLI_ASSOC);
