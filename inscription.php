@@ -1,6 +1,6 @@
 <?php
 session_start();
-$Bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
+$Bdd = mysqli_connect('localhost', 'root', '', 'hugo-chabert_moduleconnexion');
 mysqli_set_charset($Bdd, 'utf8');
 $erreur = '';
 

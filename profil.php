@@ -12,7 +12,7 @@ if(!isset($_SESSION['login'])){
 
 if(isset($_SESSION['login'])){
     $username = $_SESSION['login'];
-    $Bdd = mysqli_connect('localhost', 'root', '', 'moduleconnexion') or die('Erreur');
+    $Bdd = mysqli_connect('localhost', 'root', '', 'hugo-chabert_moduleconnexion') or die('Erreur');
     $Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs` WHERE login = '$username'");
     if($Rows = mysqli_fetch_array($Requete)){
         $Login = $Rows['login'];
