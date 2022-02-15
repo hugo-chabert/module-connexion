@@ -13,7 +13,7 @@ if(!empty($_POST['ANom']) && !empty($_POST['NNom']) && !empty($_POST['CNNom'])){
     $NNom = $_POST['NNom'];
     $CNNom = $_POST['CNNom'];
     if($_POST['NNom'] == $_POST['CNNom']){
-        $Bdd = mysqli_connect('localhost', 'hugo-chabertMC', 'Chabert13', 'hugo-chabert_moduleconnexion') or die('Erreur');
+        $Bdd = mysqli_connect('localhost', 'hugo-chabertMC', 'chabertMC', 'hugo-chabert_moduleconnexion') or die('Erreur');
         $Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs` WHERE login = '$username' AND nom = '$Nom'");
         $Rows = mysqli_num_rows($Requete);
         if($Rows == 1){

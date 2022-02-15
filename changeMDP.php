@@ -13,7 +13,7 @@ if(!empty($_POST['AMDP']) && !empty($_POST['NMDP']) && !empty($_POST['CNMDP'])){
     $NMDP = $_POST['NMDP'];
     $CNMDP = $_POST['CNMDP'];
     if($_POST['NMDP'] == $_POST['CNMDP']){
-        $Bdd = mysqli_connect('localhost', 'hugo-chabertMC', 'Chabert13', 'hugo-chabert_moduleconnexion') or die('Erreur');
+        $Bdd = mysqli_connect('localhost', 'hugo-chabertMC', 'chabertMC', 'hugo-chabert_moduleconnexion') or die('Erreur');
         $Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs` WHERE login = '$username' AND password = '$MDP'");
         $Rows = mysqli_num_rows($Requete);
         if($Rows == 1){

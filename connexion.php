@@ -10,7 +10,7 @@ if(isset($_POST['connexion'])){
     $Login = $_POST['login'];
     $MDP = $_POST['password'];
     if($Login != NULL && $MDP != NULL){
-        $Bdd = mysqli_connect('localhost', 'hugo-chabertMC', 'Chabert13', 'hugo-chabert_moduleconnexion');
+        $Bdd = mysqli_connect('localhost', 'hugo-chabertMC', 'chabertMC', 'hugo-chabert_moduleconnexion');
         mysqli_set_charset($Bdd, 'utf8');
         $Requete = mysqli_query($Bdd, "SELECT * FROM `utilisateurs` WHERE login = '".$Login."' AND password = '".$MDP."'");
         $Rows = mysqli_num_rows($Requete);
